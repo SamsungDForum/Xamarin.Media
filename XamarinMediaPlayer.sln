@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinMediaPlayer", "XamarinMediaPlayer\XamarinMediaPlayer\XamarinMediaPlayer.csproj", "{A7B9FA46-47F0-4947-888F-70528924BB2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinMediaPlayer.Tizen", "XamarinMediaPlayer\XamarinMediaPlayer.Tizen\XamarinMediaPlayer.Tizen.csproj", "{9AA1C4EB-6C64-430B-9731-6F8FDFF7FCBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinMediaPlayer.Droid", "XamarinMediaPlayer\XamarinMediaPlayer.Droid\XamarinMediaPlayer.Droid.csproj", "{2FE3D5AA-7BC4-44D0-9074-16CB9EBE2F64}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7B9FA46-47F0-4947-888F-70528924BB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B9FA46-47F0-4947-888F-70528924BB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B9FA46-47F0-4947-888F-70528924BB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B9FA46-47F0-4947-888F-70528924BB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AA1C4EB-6C64-430B-9731-6F8FDFF7FCBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AA1C4EB-6C64-430B-9731-6F8FDFF7FCBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AA1C4EB-6C64-430B-9731-6F8FDFF7FCBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AA1C4EB-6C64-430B-9731-6F8FDFF7FCBF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE3D5AA-7BC4-44D0-9074-16CB9EBE2F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE3D5AA-7BC4-44D0-9074-16CB9EBE2F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE3D5AA-7BC4-44D0-9074-16CB9EBE2F64}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2FE3D5AA-7BC4-44D0-9074-16CB9EBE2F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE3D5AA-7BC4-44D0-9074-16CB9EBE2F64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE3D5AA-7BC4-44D0-9074-16CB9EBE2F64}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
