@@ -53,13 +53,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />
-    <Folder Include="res\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinMediaPlayer\XamarinMediaPlayer.csproj">
       <Project>{a7b9fa46-47f0-4947-888f-70528924bb2f}</Project>
       <Name>XamarinMediaPlayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ic_play_playcontrol_normal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

@@ -4391,10 +4391,10 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "c:\\Users\\Jinwoo\\Documents\\Visual Studio 2017\\Projects\\XamarinMediaPlayer\\XamarinMediaPlayer\\XamarinMediaPlayer.Tizen\\XamarinMediaPlayer.Tizen.csproj",
+      "projectUniqueName": "C:\\Users\\Jinwoo\\Documents\\Visual Studio 2017\\Projects\\XamarinMediaPlayer\\XamarinMediaPlayer\\XamarinMediaPlayer.Tizen\\XamarinMediaPlayer.Tizen.csproj",
       "projectName": "XamarinMediaPlayer.Tizen",
-      "projectPath": "c:\\Users\\Jinwoo\\Documents\\Visual Studio 2017\\Projects\\XamarinMediaPlayer\\XamarinMediaPlayer\\XamarinMediaPlayer.Tizen\\XamarinMediaPlayer.Tizen.csproj",
-      "projectJsonPath": "c:\\Users\\Jinwoo\\Documents\\Visual Studio 2017\\Projects\\XamarinMediaPlayer\\XamarinMediaPlayer\\XamarinMediaPlayer.Tizen\\XamarinMediaPlayer.Tizen.project.json",
+      "projectPath": "C:\\Users\\Jinwoo\\Documents\\Visual Studio 2017\\Projects\\XamarinMediaPlayer\\XamarinMediaPlayer\\XamarinMediaPlayer.Tizen\\XamarinMediaPlayer.Tizen.csproj",
+      "projectJsonPath": "C:\\Users\\Jinwoo\\Documents\\Visual Studio 2017\\Projects\\XamarinMediaPlayer\\XamarinMediaPlayer\\XamarinMediaPlayer.Tizen\\XamarinMediaPlayer.Tizen.project.json",
       "projectStyle": "ProjectJson"
     },
     "dependencies": {

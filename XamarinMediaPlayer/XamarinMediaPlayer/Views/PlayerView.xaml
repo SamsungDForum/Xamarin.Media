@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinMediaPlayer.Views.PlayerView">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     x:Name="Controller"
+                     BackgroundColor="Green">
+            <StackLayout BackgroundColor="#80101010"
+                         Padding="0, 20">
+                <Label x:Name="Title"
+                       Text="video player test"
+                       TextColor="White"
+                       FontSize="Large"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Fill"/>
+            </StackLayout>
+            <BoxView VerticalOptions="FillAndExpand"/>
+            <StackLayout BackgroundColor="#80101010"
+                         Padding="20, 20">
+                <ProgressBar x:Name="Progressbar"
+                             Progress=".2" />
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="CurrentTIme"
+                           HorizontalOptions="StartAndExpand"
+                           Text="00:00"
+                           TextColor="White"
+                           FontSize="Medium"/>
+                    <Label x:Name="TotalTIme"
+                           HorizontalOptions="EndAndExpand"
+                           Text="00:00"
+                           TextColor="White"
+                           FontSize="Medium"/>
+                </StackLayout>
+                <Image Source="ic_play_playcontrol_normal.png" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
