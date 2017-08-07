@@ -250,3 +250,13 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+# Added
+*.user
+*.project.lock.json
+
+*.db
+*.opendb
+Debug/
+
+*.nuget.props
