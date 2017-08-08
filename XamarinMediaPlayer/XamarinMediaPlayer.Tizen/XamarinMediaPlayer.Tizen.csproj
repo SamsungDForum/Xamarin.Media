@@ -48,6 +48,7 @@
     <None Include="shared\res\XamarinMediaPlayer.Tizen.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Renderer\ContentListRenderer.cs" />
     <Compile Include="XamarinMediaPlayer.Tizen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -62,6 +63,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\ic_play_playcontrol_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="res\1_a.png" />
+    <Content Include="res\1_b.png" />
+    <Content Include="res\2_a.png" />
+    <Content Include="res\2_b.png" />
+    <Content Include="res\3_a.png" />
+    <Content Include="res\3_b.png" />
+    <Content Include="res\4_a.png" />
+    <Content Include="res\4_b.png" />
+    <Content Include="res\5.1.png" />
+    <Content Include="res\5_a.png" />
+    <Content Include="res\5_b.png" />
+    <Content Include="res\6_a.png" />
+    <Content Include="res\6_b.png" />
+    <Content Include="res\content_list_bg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
@@ -86,7 +103,9 @@
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{2F98DAC9-6F16-457B-AED7-D43CAC379341}" Configuration="Debug|Any CPU">
-        <ProjectCommonFlavorCfg />
+        <ProjectCommonFlavorCfg>
+          <excludeXamarinForms>True</excludeXamarinForms>
+        </ProjectCommonFlavorCfg>
       </FlavorProperties>
       <FlavorProperties GUID="{2F98DAC9-6F16-457B-AED7-D43CAC379341}" Configuration="Release|Any CPU">
         <ProjectCommonFlavorCfg />

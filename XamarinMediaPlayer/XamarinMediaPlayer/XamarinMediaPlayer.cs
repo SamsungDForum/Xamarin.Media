@@ -10,10 +10,12 @@ namespace XamarinMediaPlayer
 {
     public class App : Application
     {
+        public static NavigationPage AppMainPage { get; private set; }
+
         public App()
         {
-            // The root page of your application
-            MainPage = new PlayerView();
+            MainPage = new NavigationPage(new ContentListPage());
+            AppMainPage = MainPage as NavigationPage;
         }
 
         protected override void OnStart()
