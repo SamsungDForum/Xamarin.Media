@@ -41,7 +41,7 @@
       <DependentUpon>ContentList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\DetailContentData.cs" />
-    <Compile Include="Services\IPlayer.cs" />
+    <Compile Include="Services\IPlayerService.cs" />
     <Compile Include="ViewModels\ContentListPageViewModel.cs" />
     <Compile Include="Views\ContentListPage.xaml.cs">
       <DependentUpon>ContentListPage.xaml</DependentUpon>

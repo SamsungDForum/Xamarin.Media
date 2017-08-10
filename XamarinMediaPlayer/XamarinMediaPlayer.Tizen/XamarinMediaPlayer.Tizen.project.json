@@ -9,7 +9,8 @@
     "Microsoft.NETCore.App": {
       "version": "2.0.0-preview1-002111-00"
     },
-    "Xamarin.Forms": "2.3.5-r233-009",
+    "Tizen.Multimedia": "1.2.0",
+    "Tizen.NET": "3.0.0",
     "Xamarin.Forms.Platform.Tizen": "2.3.5-r233-009"
   },
   "runtimes": {

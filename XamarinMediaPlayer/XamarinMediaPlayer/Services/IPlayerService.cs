@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace HelloXamarinFormsWorldXaml
+namespace XamarinMediaPlayer.Service
 {
-    public interface IPlayer
+    public interface IPlayerService
     {
+        int Duration { get; }
+
+        int CurrentPosition { get; }
+
         void SetSource(string uri);
 
         Task PrepareAsync();
-
-        void SetDisplay(Object display);
 
         void Start();
 
@@ -17,6 +19,6 @@ namespace HelloXamarinFormsWorldXaml
 
         void Pause();
 
-        void SeekTo(int to);
+        void SeekTo(int positionMs);
     }
 }

@@ -5,12 +5,11 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand"
-                     x:Name="Controller"
-                     BackgroundColor="Green">
+                     x:Name="Controller">
             <StackLayout BackgroundColor="#80101010"
                          Padding="0, 20">
                 <Label x:Name="Title"
-                       Text="video player test"
+                       Text="Big Buck Bunny"
                        TextColor="White"
                        FontSize="Large"
                        HorizontalOptions="CenterAndExpand"
@@ -22,14 +21,14 @@
                 <ProgressBar x:Name="Progressbar"
                              Progress=".2" />
                 <StackLayout Orientation="Horizontal">
-                    <Label x:Name="CurrentTIme"
+                    <Label x:Name="CurrentTime"
                            HorizontalOptions="StartAndExpand"
-                           Text="00:00"
+                           Text="01:12"
                            TextColor="White"
                            FontSize="Medium"/>
-                    <Label x:Name="TotalTIme"
+                    <Label x:Name="TotalTime"
                            HorizontalOptions="EndAndExpand"
-                           Text="00:00"
+                           Text="03:34"
                            TextColor="White"
                            FontSize="Medium"/>
                 </StackLayout>

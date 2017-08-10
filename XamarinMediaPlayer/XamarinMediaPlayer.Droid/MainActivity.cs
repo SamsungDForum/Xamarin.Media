@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace XamarinMediaPlayer.Droid
 {
-    [Activity(Label = "XamarinMediaPlayer.Droid", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "XamarinMediaPlayer.Droid", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Theme.Transparent")]
     public class MainActivity : FormsApplicationActivity
     {
         protected override void OnCreate(Bundle bundle)
