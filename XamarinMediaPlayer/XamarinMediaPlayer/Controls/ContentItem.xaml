@@ -6,6 +6,20 @@
             ContentImg="{Binding Bg}"
             ContentInfo="{Binding Info}"
             ContentFocusedCommand="{Binding ContentFocusedCommand}">
+    <BoxView x:Name="ImageBorder"
+             HorizontalOptions="Fill"
+             VerticalOptions="Fill"
+             AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+    <Image x:Name="ContentImage"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           Aspect="Fill"
+           AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+           Margin="3, 3, 3, 3"/>
+    <BoxView x:Name="Dim"
+             HorizontalOptions="Fill"
+             VerticalOptions="Fill"
+             AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
     <Button x:Name="FocusArea"
             Opacity="0"
             AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
@@ -14,22 +28,4 @@
             Clicked="OnItemClicked"
             Focused="OnItemFocused"
             Unfocused="OnItemUnfocused"/>
-    <BoxView x:Name="ImageBorder"
-             HorizontalOptions="Fill"
-             VerticalOptions="Fill"
-             AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
-    <Image x:Name="ContentImage"
-           HorizontalOptions="Center"
-           VerticalOptions="Center"
-           HeightRequest="225"
-           WidthRequest="400"
-           AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
-           Aspect="Fill"
-           Margin="4, 4, 4, 4"/>
-    <BoxView x:Name="Dim"
-             HorizontalOptions="Center"
-             VerticalOptions="Center"
-             HeightRequest="225"
-             WidthRequest="400"
-             AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" />
 </AbsoluteLayout>

@@ -12,58 +12,40 @@
     <ContentPage.Content>
         <RelativeLayout>
             <Image x:Name="ContentImage"
-                   HorizontalOptions="End"
-                   VerticalOptions="Start"
-                   HeightRequest="843"
-                   WidthRequest="1500"
                    Aspect="Fill"
-                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.7}"
                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
-                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}" />
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3}" />
             <Image x:Name="BgImage"
-                   HorizontalOptions="End"
-                   VerticalOptions="Start"
-                   HeightRequest="843"
-                   WidthRequest="1500"
                    Aspect="Fill"
-                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.7}"
                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
-                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"/>
+                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3}" />
             <BoxView x:Name="Dim"
                      RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
                      RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                      RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0}"
                      RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}" />
-            <Label x:Name="ContentTitle"
-                   WidthRequest="600"
-                   TextColor="#ffffff"
-                   FontSize="Large"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Start"
-                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}"
-                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.03}"/>
-            <Label x:Name="ContentDesc"
-                   WidthRequest="600"
-                   FontSize="50"
-                   HeightRequest="500"
-                   TextColor="#999999"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Start"
-                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
-                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.2}"
-                   RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.03}"/>
+            <StackLayout RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5}"
+                         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.4}"
+                         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.1}"
+                         RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.03}">
+                <Label x:Name="ContentTitle"
+                       TextColor="#ffffff"
+                       FontSize="Large"/>
+                <BoxView HeightRequest="20"/>
+                <Label x:Name="ContentDesc"
+                       FontSize="Micro"
+                       TextColor="#999999"/>
+            </StackLayout>
             <Controls:ContentList x:Name="ContentListView"
                                   HorizontalOptions="Center"
-                                  WidthRequest="1800"
-                                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
-                                  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.21}"
+                                  RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.94}"
                                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.7}"
-                                  RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"/>
+                                  RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.03}"/>
         </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

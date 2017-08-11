@@ -34,8 +34,8 @@ namespace XamarinMediaPlayer.ViewModels
             content = new DetailContentData();
             content.Info.Add("Big Buck Bunny");
             content.Info.Add("Big Buck Bunny is a comedy about a well-tempered rabbit Big Buck, who finds his day spoiled by the rude actions of the forest bullies, three rodents.In the typical 1950s cartoon tradition, BigBuck then prepares for the rodents in a comical revenge.");
-            content.Image = "1_b.png";
-            content.Bg = "1_a.png";
+            content.Image = "img_1_b.png";
+            content.Bg = "img_1_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
             ContentList.Add(content);
@@ -43,8 +43,8 @@ namespace XamarinMediaPlayer.ViewModels
             content = new DetailContentData();
             content.Info.Add("Monument Valley");
             content.Info.Add("Xamarin.Forms is a cross-platform UI toolkit that allows developers to efficiently create native user interface layouts that can be shared across iOS, Android, Windows Phone, Windows Store, and Universal Windows Platform apps. This series introduces the basics of Xamarin.Forms development and covers building multi-platform and multi-screen applications.");
-            content.Image = "2_b.png";
-            content.Bg = "2_a.png";
+            content.Image = "img_2_b.png";
+            content.Bg = "img_2_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
             ContentList.Add(content);
@@ -52,8 +52,8 @@ namespace XamarinMediaPlayer.ViewModels
             content = new DetailContentData();
             content.Info.Add("Aurora Borealis");
             content.Info.Add("Xamarin.Forms is a cross-platform UI toolkit that allows developers to efficiently create native user interface layouts that can be shared across iOS, Android, Windows Phone, Windows Store, and Universal Windows Platform apps. This series introduces the basics of Xamarin.Forms development and covers building multi-platform and multi-screen applications.");
-            content.Image = "3_b.png";
-            content.Bg = "3_a.png";
+            content.Image = "img_3_b.png";
+            content.Bg = "img_3_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
             ContentList.Add(content);
@@ -61,8 +61,8 @@ namespace XamarinMediaPlayer.ViewModels
             content = new DetailContentData();
             content.Info.Add("Berlin");
             content.Info.Add("Xamarin.Forms is a cross-platform UI toolkit that allows developers to efficiently create native user interface layouts that can be shared across iOS, Android, Windows Phone, Windows Store, and Universal Windows Platform apps. This series introduces the basics of Xamarin.Forms development and covers building multi-platform and multi-screen applications.");
-            content.Image = "4_b.png";
-            content.Bg = "4_a.png";
+            content.Image = "img_4_b.png";
+            content.Bg = "img_4_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
             ContentList.Add(content);
@@ -70,8 +70,8 @@ namespace XamarinMediaPlayer.ViewModels
             content = new DetailContentData();
             content.Info.Add("Windmill");
             content.Info.Add("Xamarin.Forms is a cross-platform UI toolkit that allows developers to efficiently create native user interface layouts that can be shared across iOS, Android, Windows Phone, Windows Store, and Universal Windows Platform apps. This series introduces the basics of Xamarin.Forms development and covers building multi-platform and multi-screen applications.");
-            content.Image = "5_b.png";
-            content.Bg = "5_a.png";
+            content.Image = "img_5_b.png";
+            content.Bg = "img_5_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
             ContentList.Add(content);
@@ -79,8 +79,8 @@ namespace XamarinMediaPlayer.ViewModels
             content = new DetailContentData();
             content.Info.Add("Golf Course");
             content.Info.Add("Xamarin.Forms is a cross-platform UI toolkit that allows developers to efficiently create native user interface layouts that can be shared across iOS, Android, Windows Phone, Windows Store, and Universal Windows Platform apps. This series introduces the basics of Xamarin.Forms development and covers building multi-platform and multi-screen applications.");
-            content.Image = "6_b.png";
-            content.Bg = "6_a.png";
+            content.Image = "img_6_b.png";
+            content.Bg = "img_6_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
             ContentList.Add(content);

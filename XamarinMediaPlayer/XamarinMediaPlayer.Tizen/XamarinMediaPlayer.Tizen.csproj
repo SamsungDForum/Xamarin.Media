@@ -66,20 +66,19 @@
     <None Include="res\ic_play_playcontrol_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="res\1_a.png" />
-    <Content Include="res\1_b.png" />
-    <Content Include="res\2_a.png" />
-    <Content Include="res\2_b.png" />
-    <Content Include="res\3_a.png" />
-    <Content Include="res\3_b.png" />
-    <Content Include="res\4_a.png" />
-    <Content Include="res\4_b.png" />
-    <Content Include="res\5.1.png" />
-    <Content Include="res\5_a.png" />
-    <Content Include="res\5_b.png" />
-    <Content Include="res\6_a.png" />
-    <Content Include="res\6_b.png" />
     <Content Include="res\content_list_bg.png" />
+    <Content Include="res\img_1_a.png" />
+    <Content Include="res\img_1_b.png" />
+    <Content Include="res\img_2_a.png" />
+    <Content Include="res\img_2_b.png" />
+    <Content Include="res\img_3_a.png" />
+    <Content Include="res\img_3_b.png" />
+    <Content Include="res\img_4_a.png" />
+    <Content Include="res\img_4_b.png" />
+    <Content Include="res\img_5_a.png" />
+    <Content Include="res\img_5_b.png" />
+    <Content Include="res\img_6_a.png" />
+    <Content Include="res\img_6_b.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

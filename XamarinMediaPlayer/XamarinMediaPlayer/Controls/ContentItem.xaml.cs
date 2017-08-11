@@ -38,20 +38,33 @@ namespace XamarinMediaPlayer.Controls
         {
             InitializeComponent();
 
-            ImageBorder.BackgroundColor = Color.FromRgb(50, 50, 50);
+            ImageBorder.BackgroundColor = Color.FromRgb(32, 32, 32);
             Dim.Color = Color.FromRgba(0, 0, 0, 128);
 
             PropertyChanged += ContentImgPropertyChanged;
         }
 
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            if (width == -1 || height == -1)
+                return;
+
+            this.WidthRequest = height * 1.8;
+        }
+
         private void OnItemClicked(object sender, EventArgs e)
         {
+            ImageBorder.BackgroundColor = Color.FromRgb(234, 234, 234);
+            Dim.Color = Color.FromRgba(0, 0, 0, 0);
 
+            ContentFocusedCommand?.Execute(this);
         }
 
         private void OnItemFocused(object sender, FocusEventArgs e)
         {
-            ImageBorder.BackgroundColor = Color.FromRgb(220, 220, 220);
+            ImageBorder.BackgroundColor = Color.FromRgb(234, 234, 234);
             Dim.Color = Color.FromRgba(0, 0, 0, 0);
 
             ContentFocusedCommand?.Execute(this);
@@ -59,7 +72,7 @@ namespace XamarinMediaPlayer.Controls
 
         private void OnItemUnfocused(object sender, FocusEventArgs e)
         {
-            ImageBorder.BackgroundColor = Color.FromRgb(50, 50, 50);
+            ImageBorder.BackgroundColor = Color.FromRgb(32, 32, 32);
             Dim.Color = Color.FromRgba(0, 0, 0, 128);
         }
 
