@@ -44,6 +44,11 @@ namespace XamarinMediaPlayer.Controls
             PropertyChanged += ContentImgPropertyChanged;
         }
 
+        public bool SetFocus()
+        {
+            return FocusArea.Focus();
+        }
+
         protected override void OnSizeAllocated(double width, double height)
         {
             base.OnSizeAllocated(width, height);
@@ -56,10 +61,6 @@ namespace XamarinMediaPlayer.Controls
 
         private void OnItemClicked(object sender, EventArgs e)
         {
-            ImageBorder.BackgroundColor = Color.FromRgb(234, 234, 234);
-            Dim.Color = Color.FromRgba(0, 0, 0, 0);
-
-            ContentFocusedCommand?.Execute(this);
         }
 
         private void OnItemFocused(object sender, FocusEventArgs e)
