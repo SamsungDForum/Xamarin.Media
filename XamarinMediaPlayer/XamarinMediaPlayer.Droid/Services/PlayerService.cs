@@ -9,27 +9,41 @@ using Android.Views;
 using Android.Widget;
 using Xamarin.Forms;
 using XamarinMediaPlayer.Droid.Services;
-using XamarinMediaPlayer.Service;
-using static Android.Media.MediaPlayer;
+using XamarinMediaPlayer.Services;
 
 [assembly: Dependency(typeof(PlayerService))]
 namespace XamarinMediaPlayer.Droid.Services
 {
-    class PlayerService : Java.Lang.Object, IPlayerService
+    class PlayerService : Java.Lang.Object, IPlayerService,
+        MediaPlayer.IOnPreparedListener
     {
-        private VideoView _view;
+        private VideoView _videoView;
         private int _PrevUiOptions;
+        private PlayerState _playerState = PlayerState.Idle;
 
-        public int Duration => _view == null ? 0 : _view.Duration;
+        public event PlayerStateChangedEventHandler StateChanged;
 
-        public int CurrentPosition => _view == null ? 0 : _view.CurrentPosition;
+        public int Duration => _videoView == null ? 0 : _videoView.Duration;
+
+        public int CurrentPosition => _videoView == null ? 0 : _videoView.CurrentPosition;
+
+        public PlayerState State
+        {
+            get { return _playerState; }
+            private set
+            {
+                _playerState = value;
+                StateChanged?.Invoke(this, new PlayerStateChangedEventArgs(_playerState));
+            }
+        }
 
         public PlayerService()
         {
             var decorView = (FrameLayout)((Activity)Forms.Context).Window.DecorView;
 
-            _view = new VideoView(Forms.Context);
-            decorView.AddView(_view, 0);
+            _videoView = new VideoView(Forms.Context);
+            _videoView.SetOnPreparedListener(this);
+            decorView.AddView(_videoView, 0);
 
             var uiOptions = _PrevUiOptions = (int)decorView.SystemUiVisibility;
             var newUiOptions = (int)uiOptions;
@@ -44,7 +58,8 @@ namespace XamarinMediaPlayer.Droid.Services
 
         public void Pause()
         {
-            _view.Pause();
+            _videoView.Pause();
+            State = PlayerState.Paused;
         }
 
         public async Task PrepareAsync()
@@ -53,22 +68,45 @@ namespace XamarinMediaPlayer.Droid.Services
 
         public void SeekTo(int positionMs)
         {
-            _view.SeekTo(positionMs);
+            _videoView.SeekTo(positionMs);
         }
 
         public void SetSource(string uri)
         {
-            _view.SetVideoPath(uri);
+            _videoView.SetVideoPath(uri);
+            State = PlayerState.Preparing;
         }
 
         public void Start()
         {
-            _view.Start();
+            _videoView.Start();
+            State = PlayerState.Playing;
         }
 
         public void Stop()
         {
-            _view.StopPlayback();
+            _videoView.StopPlayback();
+            State = PlayerState.Stopped;
+        }
+
+        public void OnPrepared(MediaPlayer mp)
+        {
+            State = PlayerState.Prepared;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                var decorView = (FrameLayout)((Activity)Forms.Context).Window.DecorView;
+
+                decorView.RemoveView(_videoView);
+                decorView.SystemUiVisibility = (StatusBarVisibility)_PrevUiOptions;
+
+                _videoView.Dispose();
+            }
+
+            base.Dispose(disposing);
         }
     }
 }

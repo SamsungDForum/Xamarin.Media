@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamarinMediaPlayer.Views.PlayerView">
+             x:Class="XamarinMediaPlayer.Views.PlayerView"
+             xmlns:Controls="clr-namespace:XamarinMediaPlayer.Controls">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand"
@@ -11,7 +12,7 @@
                 <Label x:Name="Title"
                        Text="Big Buck Bunny"
                        TextColor="White"
-                       FontSize="Large"
+                       FontSize="Medium"
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="Fill"/>
             </StackLayout>
@@ -19,20 +20,27 @@
             <StackLayout BackgroundColor="#80101010"
                          Padding="20, 20">
                 <ProgressBar x:Name="Progressbar"
-                             Progress=".2" />
+                             Progress=".0" />
                 <StackLayout Orientation="Horizontal">
                     <Label x:Name="CurrentTime"
                            HorizontalOptions="StartAndExpand"
-                           Text="01:12"
+                           Text="00:00"
                            TextColor="White"
                            FontSize="Medium"/>
                     <Label x:Name="TotalTime"
                            HorizontalOptions="EndAndExpand"
-                           Text="03:34"
+                           Text="00:00"
                            TextColor="White"
                            FontSize="Medium"/>
                 </StackLayout>
-                <Image Source="ic_play_playcontrol_normal.png" />
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30">
+                    <Button x:Name="Prev" Image="btn_viewer_control_previous_normal.png" WidthRequest="100">
+                    </Button>
+                    <Button x:Name="Play" Image="btn_viewer_control_play_normal.png" WidthRequest="100">
+                    </Button>
+                    <Button x:Name="Next" Image="btn_viewer_control_next_normal.png" WidthRequest="100">
+                    </Button>
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -1,13 +1,18 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
-namespace XamarinMediaPlayer.Service
+namespace XamarinMediaPlayer.Services
 {
+    public delegate void PlayerStateChangedEventHandler(object sender, PlayerStateChangedEventArgs e);
+
     public interface IPlayerService
     {
+        event PlayerStateChangedEventHandler StateChanged;
+
         int Duration { get; }
 
         int CurrentPosition { get; }
+
+        PlayerState State { get; }
 
         void SetSource(string uri);
 

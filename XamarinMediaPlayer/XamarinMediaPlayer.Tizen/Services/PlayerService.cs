@@ -1,39 +1,60 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Tizen.Multimedia;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Tizen;
-using XamarinMediaPlayer.Service;
+using XamarinMediaPlayer.Services;
 using XamarinMediaPlayer.Tizen.Services;
+using Multimedia = Tizen.Multimedia;
 
 [assembly: Dependency(typeof(PlayerService))]
 namespace XamarinMediaPlayer.Tizen.Services
 {
-    class PlayerService : IPlayerService
+    class PlayerService : IPlayerService, IDisposable
     {
-        private Player _player;
+        private Multimedia.Player _player;
+        private PlayerState _playerState = PlayerState.Idle;
+
+        public event PlayerStateChangedEventHandler StateChanged;
 
         public int Duration => _player == null ? 0 : _player.StreamInfo.GetDuration();
 
         public int CurrentPosition => _player == null ? 0 : _player.GetPlayPosition();
 
+        public PlayerState State
+        {
+            get { return _playerState; }
+            private set
+            {
+                _playerState = value;
+                StateChanged?.Invoke(this, new PlayerStateChangedEventArgs(_playerState));
+            }
+        }
+
         public PlayerService()
         {
-            var display = new Display(Forms.Context.MainWindow);
+            var display = new Multimedia.Display(Forms.Context.MainWindow);
 
-            _player = new Player();
+            _player = new Multimedia.Player();
             _player.Display = display;
         }
 
         public void Pause()
         {
-            if (_player.State == PlayerState.Playing)
+            if (_player.State == Multimedia.PlayerState.Playing)
+            {
                 _player.Pause();
+
+                State = PlayerState.Paused;
+            }
         }
 
         public async Task PrepareAsync()
         {
+            State = PlayerState.Preparing;
+
             await _player.PrepareAsync();
+
+            State = PlayerState.Prepared;
         }
 
         public void SeekTo(int to)
@@ -43,22 +64,44 @@ namespace XamarinMediaPlayer.Tizen.Services
 
         public void SetSource(string uri)
         {
-            var mediaSource = new MediaUriSource(uri);
+            var mediaSource = new Multimedia.MediaUriSource(uri);
             _player.SetSource(mediaSource);
         }
 
         public void Start()
         {
-            if (_player.State == PlayerState.Ready ||
-                _player.State == PlayerState.Paused)
+            if (_player.State == Multimedia.PlayerState.Ready ||
+                _player.State == Multimedia.PlayerState.Paused)
+            {
                 _player.Start();
+
+                State = PlayerState.Playing;
+            }
         }
 
         public void Stop()
         {
-            if (_player.State == PlayerState.Playing ||
-                _player.State == PlayerState.Paused)
+            if (_player.State == Multimedia.PlayerState.Playing ||
+                _player.State == Multimedia.PlayerState.Paused)
+            {
                 _player.Stop();
+
+                State = PlayerState.Stopped;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _player.Unprepare();
+                _player.Dispose();
+            }
         }
     }
 }
