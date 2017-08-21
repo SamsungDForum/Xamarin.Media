@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
-
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using XamarinMediaPlayer.Models;
 
 namespace XamarinMediaPlayer.Controls
 {
@@ -27,11 +23,17 @@ namespace XamarinMediaPlayer.Controls
         }
 
         public static readonly BindableProperty ContentFocusedCommandProperty = BindableProperty.Create("ContentFocusedCommand", typeof(ICommand), typeof(ContentItem), default(ICommand));
-
         public ICommand ContentFocusedCommand
         {
             set { SetValue(ContentFocusedCommandProperty, value); }
             get { return (ICommand)GetValue(ContentFocusedCommandProperty); }
+        }
+
+        public static readonly BindableProperty ContentSelectedCommandProperty = BindableProperty.Create("ContentSelectedCommand", typeof(ICommand), typeof(ContentItem), default(ICommand));
+        public ICommand ContentSelectedCommand
+        {
+            set { SetValue(ContentSelectedCommandProperty, value); }
+            get { return (ICommand)GetValue(ContentSelectedCommandProperty); }
         }
 
         public ContentItem()
@@ -41,7 +43,7 @@ namespace XamarinMediaPlayer.Controls
             ImageBorder.BackgroundColor = Color.FromRgb(32, 32, 32);
             Dim.Color = Color.FromRgba(0, 0, 0, 128);
 
-            PropertyChanged += ContentImgPropertyChanged;
+            PropertyChanged += ContentPropertyChanged;
         }
 
         public bool SetFocus()
@@ -56,11 +58,12 @@ namespace XamarinMediaPlayer.Controls
             if (width == -1 || height == -1)
                 return;
 
-            this.WidthRequest = height * 1.8;
+            WidthRequest = height * 1.8;
         }
 
         private void OnItemClicked(object sender, EventArgs e)
         {
+            ContentSelectedCommand?.Execute(this);
         }
 
         private void OnItemFocused(object sender, FocusEventArgs e)
@@ -77,7 +80,7 @@ namespace XamarinMediaPlayer.Controls
             Dim.Color = Color.FromRgba(0, 0, 0, 128);
         }
 
-        private void ContentImgPropertyChanged(object sender, PropertyChangedEventArgs e)
+        private void ContentPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName.Equals("ContentImg"))
             {

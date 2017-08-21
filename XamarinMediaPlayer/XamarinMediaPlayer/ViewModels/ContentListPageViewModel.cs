@@ -21,12 +21,19 @@ namespace XamarinMediaPlayer.ViewModels
             protected set;
             get;
         }
+        public ContentItem SelectedContent { get; set; }
+        public ICommand ContentSelectedCommand
+        {
+            protected set;
+            get;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ContentListPageViewModel()
         {
             ICommand ContentFocusedCommand = CreateFocusedCommand();
+            ICommand ContentSelectedCommand = CreateSelectedCommand();
 
             ContentList = new List<DetailContentData>();
             DetailContentData content;
@@ -38,6 +45,7 @@ namespace XamarinMediaPlayer.ViewModels
             content.Bg = "img_1_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
+            content.ContentSelectedCommand = ContentSelectedCommand;
             ContentList.Add(content);
 
             content = new DetailContentData();
@@ -47,6 +55,7 @@ namespace XamarinMediaPlayer.ViewModels
             content.Bg = "img_2_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
+            content.ContentSelectedCommand = ContentSelectedCommand;
             ContentList.Add(content);
 
             content = new DetailContentData();
@@ -56,6 +65,7 @@ namespace XamarinMediaPlayer.ViewModels
             content.Bg = "img_3_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
+            content.ContentSelectedCommand = ContentSelectedCommand;
             ContentList.Add(content);
 
             content = new DetailContentData();
@@ -65,6 +75,7 @@ namespace XamarinMediaPlayer.ViewModels
             content.Bg = "img_4_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
+            content.ContentSelectedCommand = ContentSelectedCommand;
             ContentList.Add(content);
 
             content = new DetailContentData();
@@ -74,6 +85,7 @@ namespace XamarinMediaPlayer.ViewModels
             content.Bg = "img_5_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
+            content.ContentSelectedCommand = ContentSelectedCommand;
             ContentList.Add(content);
 
             content = new DetailContentData();
@@ -83,6 +95,7 @@ namespace XamarinMediaPlayer.ViewModels
             content.Bg = "img_6_a.png";
             content.Source = "http://distribution.bbb3d.renderfarming.net/video/mp4/bbb_sunflower_1080p_30fps_normal.mp4";
             content.ContentFocusedCommand = ContentFocusedCommand;
+            content.ContentSelectedCommand = ContentSelectedCommand;
             ContentList.Add(content);
         }
 
@@ -97,12 +110,20 @@ namespace XamarinMediaPlayer.ViewModels
             return command;
         }
 
+        protected ICommand CreateSelectedCommand()
+        {
+            ICommand command = new Command<ContentItem>((item) =>
+            {
+                SelectedContent = item;
+                OnPropertyChanged("SelectedContent");
+            });
+
+            return command;
+        }
+
         protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

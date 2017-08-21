@@ -14,8 +14,9 @@ namespace XamarinMediaPlayer
 
         public App()
         {
-            MainPage = new NavigationPage(new ContentListPage());
+            MainPage = new NavigationPage();
             AppMainPage = MainPage as NavigationPage;
+            AppMainPage.PushAsync(new ContentListPage(AppMainPage));
         }
 
         protected override void OnStart()

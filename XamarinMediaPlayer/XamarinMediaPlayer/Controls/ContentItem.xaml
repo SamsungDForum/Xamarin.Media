@@ -5,7 +5,8 @@
             HorizontalOptions="Center"
             ContentImg="{Binding Bg}"
             ContentInfo="{Binding Info}"
-            ContentFocusedCommand="{Binding ContentFocusedCommand}">
+            ContentFocusedCommand="{Binding ContentFocusedCommand}"
+            ContentSelectedCommand="{Binding ContentSelectedCommand}">
     <BoxView x:Name="ImageBorder"
              HorizontalOptions="Fill"
              VerticalOptions="Fill"
