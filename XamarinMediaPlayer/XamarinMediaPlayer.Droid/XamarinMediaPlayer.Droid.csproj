@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Renderer\ContentListRenderer.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PlayerService.cs" />
@@ -168,7 +169,7 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\img_4_b.png" />
   </ItemGroup>
-    <ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_play_normal.png" />
   </ItemGroup>
   <ItemGroup>
