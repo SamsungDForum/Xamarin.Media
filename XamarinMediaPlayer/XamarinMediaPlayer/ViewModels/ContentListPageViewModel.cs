@@ -43,7 +43,7 @@ namespace XamarinMediaPlayer.ViewModels
             content.Description = "Big Buck Bunny is a comedy about a well-tempered rabbit Big Buck, who finds his day spoiled by the rude actions of the forest bullies, three rodents.In the typical 1950s cartoon tradition, BigBuck then prepares for the rodents in a comical revenge.";
             content.Image = "img_1_b.png";
             content.Bg = "img_1_a.png";
-            content.Source = "https://goo.gl/ZVKLVF";
+            content.Source = "https://goo.gl/xS4DC1";
             content.ContentFocusedCommand = ContentFocusedCommand;
             content.ContentSelectedCommand = ContentSelectedCommand;
             ContentList.Add(content);
