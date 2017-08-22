@@ -134,16 +134,16 @@
     <AndroidResource Include="Resources\drawable-xhdpi\content_list_bg.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\img_5_a.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_play_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\img_5_b.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_previous_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\img_6_a.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_next_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\img_6_b.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_pause_normal.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xhdpi\img_1_a.png" />
@@ -170,16 +170,16 @@
     <AndroidResource Include="Resources\drawable-xhdpi\img_4_b.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_play_normal.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\img_5_a.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_previous_normal.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\img_5_b.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_next_normal.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\img_6_a.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xhdpi\btn_viewer_control_pause_normal.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\img_6_b.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Vector.Drawable.23.3.0\build\Xamarin.Android.Support.Vector.Drawable.targets')" />

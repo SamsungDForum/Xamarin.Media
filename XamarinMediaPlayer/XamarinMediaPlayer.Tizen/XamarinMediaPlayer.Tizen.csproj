@@ -64,6 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="res\content_list_bg.png" />
+    <Content Include="res\btn_viewer_control_next_normal.png" />
+    <Content Include="res\btn_viewer_control_pause_normal.png" />
+    <Content Include="res\btn_viewer_control_play_normal.png" />
+    <Content Include="res\btn_viewer_control_previous_normal.png" />
     <Content Include="res\img_1_a.png" />
     <Content Include="res\img_1_b.png" />
     <Content Include="res\img_2_a.png" />
@@ -75,10 +79,6 @@
     <Content Include="res\img_5_a.png" />
     <Content Include="res\img_5_b.png" />
     <Content Include="res\img_6_a.png" />
-    <Content Include="res\btn_viewer_control_next_normal.png" />
-    <Content Include="res\btn_viewer_control_pause_normal.png" />
-    <Content Include="res\btn_viewer_control_play_normal.png" />
-    <Content Include="res\btn_viewer_control_previous_normal.png" />
     <Content Include="res\img_6_b.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
