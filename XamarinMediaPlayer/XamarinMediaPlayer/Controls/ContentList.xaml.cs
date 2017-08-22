@@ -28,6 +28,16 @@ namespace XamarinMediaPlayer.Controls
         public bool SetFocus()
         {
             ContentItem item = ContentLayout.Children.First() as ContentItem;
+
+            foreach (ContentItem child in ContentLayout.Children)
+            {
+                if (child == FocusedContent)
+                {
+                    item = child;
+                    break;
+                }
+            }
+
             return item.SetFocus();
         }
 
