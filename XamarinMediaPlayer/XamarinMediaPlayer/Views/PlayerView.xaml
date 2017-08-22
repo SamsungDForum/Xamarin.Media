@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="XamarinMediaPlayer.Views.PlayerView"
-             xmlns:Controls="clr-namespace:XamarinMediaPlayer.Controls">
+             xmlns:Controls="clr-namespace:XamarinMediaPlayer.Controls"
+             ContentSource="{Binding Source}">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand"
@@ -10,7 +11,7 @@
             <StackLayout BackgroundColor="#80101010"
                          Padding="0, 20">
                 <Label x:Name="Title"
-                       Text="Big Buck Bunny"
+                       Text="{Binding Title}"
                        TextColor="White"
                        FontSize="Medium"
                        HorizontalOptions="CenterAndExpand"

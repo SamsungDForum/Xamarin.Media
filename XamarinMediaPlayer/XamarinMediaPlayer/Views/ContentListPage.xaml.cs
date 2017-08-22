@@ -73,7 +73,9 @@ namespace XamarinMediaPlayer.Views
             }
             else if (e.PropertyName.Equals("SelectedContent"))
             {
-                AppMainPage.PushAsync(new PlayerView());
+                var playerView = new PlayerView();
+                playerView.BindingContext = SelectedContent.BindingContext;
+                AppMainPage.PushAsync(playerView);
             }
         }
 
