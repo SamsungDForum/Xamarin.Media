@@ -14,6 +14,8 @@ namespace XamarinMediaPlayer.Droid
         {
             base.OnCreate(bundle);
 
+            RequestedOrientation = Android.Content.PM.ScreenOrientation.Landscape;
+
             Forms.Init(this, bundle);
 
             LoadApplication(new App());
