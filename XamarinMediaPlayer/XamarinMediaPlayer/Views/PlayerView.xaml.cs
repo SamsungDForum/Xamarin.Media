@@ -84,7 +84,7 @@ namespace XamarinMediaPlayer.Views
                 TotalTime.Text = GetFormattedTime(playerService.Duration);
 
                 if (playerService.Duration > 0)
-                    Progressbar.Progress = playerService.CurrentPosition / playerService.Duration;
+                    Progressbar.Progress = playerService.CurrentPosition / (float) playerService.Duration;
                 else
                     Progressbar.Progress = 0;
             });

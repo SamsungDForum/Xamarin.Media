@@ -79,11 +79,9 @@ namespace XamarinMediaPlayer.Views
 
         protected void UpdateContentInfo()
         {
-            List<string> info = FocusedContent.ContentInfo;
-
             ContentImage.Source = ImageSource.FromFile(FocusedContent.ContentImg);
-            ContentTitle.Text = info.ElementAt(0);
-            ContentDesc.Text = info.ElementAt(1);
+            ContentTitle.Text = FocusedContent.ContentTitle;
+            ContentDesc.Text = FocusedContent.ContentDescription;
         }
 
         protected override void OnAppearing()

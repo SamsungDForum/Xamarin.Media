@@ -4,7 +4,8 @@
             x:Class="XamarinMediaPlayer.Controls.ContentItem"
             HorizontalOptions="Center"
             ContentImg="{Binding Bg}"
-            ContentInfo="{Binding Info}"
+            ContentTitle="{Binding Title}"
+            ContentDescription ="{Binding Description}"
             ContentFocusedCommand="{Binding ContentFocusedCommand}"
             ContentSelectedCommand="{Binding ContentSelectedCommand}">
     <BoxView x:Name="ImageBorder"

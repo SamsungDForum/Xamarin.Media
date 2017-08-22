@@ -15,11 +15,18 @@ namespace XamarinMediaPlayer.Controls
             get { return (string)GetValue(ContentImgProperty); }
         }
 
-        public static readonly BindableProperty ContentInfoProperty = BindableProperty.Create("ContentInfo", typeof(List<string>), typeof(ContentItem), default(List<string>));
-        public List<string> ContentInfo
+        public static readonly BindableProperty ContentTitleProperty = BindableProperty.Create("ContentTitle", typeof(string), typeof(ContentItem), default(string));
+        public string ContentTitle
         {
-            set { SetValue(ContentInfoProperty, value); }
-            get { return (List<string>)GetValue(ContentInfoProperty); }
+            set { SetValue(ContentTitleProperty, value); }
+            get { return (string)GetValue(ContentTitleProperty); }
+        }
+
+        public static readonly BindableProperty ContentDescriptionProperty = BindableProperty.Create("ContentDescription", typeof(string), typeof(ContentItem), default(string));
+        public string ContentDescription
+        {
+            set { SetValue(ContentDescriptionProperty, value); }
+            get { return (string)GetValue(ContentDescriptionProperty); }
         }
 
         public static readonly BindableProperty ContentFocusedCommandProperty = BindableProperty.Create("ContentFocusedCommand", typeof(ICommand), typeof(ContentItem), default(ICommand));
