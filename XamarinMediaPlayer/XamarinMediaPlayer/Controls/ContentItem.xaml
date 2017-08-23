@@ -6,8 +6,7 @@
             ContentImg="{Binding Bg}"
             ContentTitle="{Binding Title}"
             ContentDescription ="{Binding Description}"
-            ContentFocusedCommand="{Binding ContentFocusedCommand}"
-            ContentSelectedCommand="{Binding ContentSelectedCommand}">
+            ContentFocusedCommand="{Binding ContentFocusedCommand}">
     <BoxView x:Name="ImageBorder"
              HorizontalOptions="Fill"
              VerticalOptions="Fill"

@@ -37,13 +37,6 @@ namespace XamarinMediaPlayer.Controls
             get { return (ICommand)GetValue(ContentFocusedCommandProperty); }
         }
 
-        public static readonly BindableProperty ContentSelectedCommandProperty = BindableProperty.Create("ContentSelectedCommand", typeof(ICommand), typeof(ContentItem), default(ICommand));
-        public ICommand ContentSelectedCommand
-        {
-            set { SetValue(ContentSelectedCommandProperty, value); }
-            get { return (ICommand)GetValue(ContentSelectedCommandProperty); }
-        }
-
         public ContentSelectHandler OnContentSelect;
 
         public ContentItem()

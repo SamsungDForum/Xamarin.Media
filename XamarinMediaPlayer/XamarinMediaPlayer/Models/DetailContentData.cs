@@ -12,7 +12,6 @@ namespace XamarinMediaPlayer.Models
         public string Description { get; set; }
 
         public ICommand ContentFocusedCommand { get; set; }
-        public ICommand ContentSelectedCommand { get; set; }
 
         public DetailContentData()
         {

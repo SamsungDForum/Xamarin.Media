@@ -31,19 +31,6 @@ namespace XamarinMediaPlayer.Views
             }
         }
 
-        public static readonly BindableProperty SelectedContentProperty = BindableProperty.Create("SelectedContent", typeof(ContentItem), typeof(ContentListPage), default(ContentItem));
-        public ContentItem SelectedContent
-        {
-            get
-            {
-                return (ContentItem)GetValue(SelectedContentProperty);
-            }
-            set
-            {
-                SetValue(SelectedContentProperty, value);
-            }
-        }
-
         public ContentListPage(NavigationPage page)
         {
             InitializeComponent();
