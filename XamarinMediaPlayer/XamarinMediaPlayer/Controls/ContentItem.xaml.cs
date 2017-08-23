@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
+using XamarinMediaPlayer.Services;
 
 namespace XamarinMediaPlayer.Controls
 {
@@ -43,6 +44,8 @@ namespace XamarinMediaPlayer.Controls
             get { return (ICommand)GetValue(ContentSelectedCommandProperty); }
         }
 
+        public ContentSelectHandler OnContentSelect;
+
         public ContentItem()
         {
             InitializeComponent();
@@ -70,7 +73,7 @@ namespace XamarinMediaPlayer.Controls
 
         private void OnItemClicked(object sender, EventArgs e)
         {
-            ContentSelectedCommand?.Execute(this);
+            OnContentSelect(this);
         }
 
         private void OnItemFocused(object sender, FocusEventArgs e)

@@ -43,6 +43,7 @@
     <Compile Include="Models\DetailContentData.cs" />
     <Compile Include="Services\IPlayerService.cs" />
     <Compile Include="Services\PlayerState.cs" />
+    <Compile Include="Services\ContentSelect.cs" />
     <Compile Include="Services\PlayerStateChangedEventArgs.cs" />
     <Compile Include="ViewModels\ContentListPageViewModel.cs" />
     <Compile Include="Views\ContentListPage.xaml.cs">
