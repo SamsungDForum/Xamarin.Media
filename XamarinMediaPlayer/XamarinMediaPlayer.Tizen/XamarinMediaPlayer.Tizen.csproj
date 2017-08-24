@@ -76,10 +76,8 @@
     <Content Include="res\img_3_b.png" />
     <Content Include="res\img_4_a.png" />
     <Content Include="res\img_4_b.png" />
-    <Content Include="res\img_5_a.png" />
-    <Content Include="res\img_5_b.png" />
-    <Content Include="res\img_6_a.png" />
-    <Content Include="res\img_6_b.png" />
+    <Content Include="res\img_7_a.png" />
+    <Content Include="res\img_7_b.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
