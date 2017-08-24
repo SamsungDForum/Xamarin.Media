@@ -22,6 +22,7 @@ namespace XamarinMediaPlayer.Droid.Services
         private PlayerState _playerState = PlayerState.Idle;
 
         public event PlayerStateChangedEventHandler StateChanged;
+        public event EventHandler PlaybackCompleted;
 
         public int Duration => _videoView == null ? 0 : _videoView.Duration;
 
@@ -39,21 +40,16 @@ namespace XamarinMediaPlayer.Droid.Services
 
         public PlayerService()
         {
-            var decorView = (FrameLayout)((Activity)Forms.Context).Window.DecorView;
-
             _videoView = new VideoView(Forms.Context);
-            _videoView.SetOnPreparedListener(this);
-            decorView.AddView(_videoView, 0);
-
-            var uiOptions = _PrevUiOptions = (int)decorView.SystemUiVisibility;
-            var newUiOptions = (int)uiOptions;
-
-            newUiOptions |= (int)SystemUiFlags.LowProfile;
-            newUiOptions |= (int)SystemUiFlags.Fullscreen;
-            newUiOptions |= (int)SystemUiFlags.HideNavigation;
-            newUiOptions |= (int)SystemUiFlags.Immersive;
-
-            decorView.SystemUiVisibility = (StatusBarVisibility)newUiOptions;
+            _videoView.Prepared += (s, e) =>
+            {
+                State = PlayerState.Prepared;
+            };
+            _videoView.Completion += (s, e) =>
+            {
+                PlaybackCompleted?.Invoke(this, e);
+                State = PlayerState.Stopped;
+            };
         }
 
         public void Pause()
@@ -64,6 +60,19 @@ namespace XamarinMediaPlayer.Droid.Services
 
         public async Task PrepareAsync()
         {
+            var decorView = (FrameLayout)((Activity)Forms.Context).Window.DecorView;
+
+            decorView.AddView(_videoView, 0);
+
+            _PrevUiOptions = (int)decorView.SystemUiVisibility;
+            var newUiOptions = (int)_PrevUiOptions;
+
+            newUiOptions |= (int)SystemUiFlags.LowProfile;
+            newUiOptions |= (int)SystemUiFlags.Fullscreen;
+            newUiOptions |= (int)SystemUiFlags.HideNavigation;
+            newUiOptions |= (int)SystemUiFlags.Immersive;
+
+            decorView.SystemUiVisibility = (StatusBarVisibility)newUiOptions;
         }
 
         public void SeekTo(int positionMs)
@@ -86,6 +95,12 @@ namespace XamarinMediaPlayer.Droid.Services
         public void Stop()
         {
             _videoView.StopPlayback();
+
+            var decorView = (FrameLayout)((Activity)Forms.Context).Window.DecorView;
+
+            decorView.RemoveView(_videoView);
+            decorView.SystemUiVisibility = (StatusBarVisibility)_PrevUiOptions;
+
             State = PlayerState.Stopped;
         }
 

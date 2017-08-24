@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace XamarinMediaPlayer.Services
 {
@@ -7,6 +8,7 @@ namespace XamarinMediaPlayer.Services
     public interface IPlayerService
     {
         event PlayerStateChangedEventHandler StateChanged;
+        event EventHandler PlaybackCompleted;
 
         int Duration { get; }
 

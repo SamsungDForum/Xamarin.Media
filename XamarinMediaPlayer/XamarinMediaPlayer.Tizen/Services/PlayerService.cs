@@ -15,6 +15,7 @@ namespace XamarinMediaPlayer.Tizen.Services
         private PlayerState _playerState = PlayerState.Idle;
 
         public event PlayerStateChangedEventHandler StateChanged;
+        public event EventHandler PlaybackCompleted;
 
         public int Duration => _player == null ? 0 : _player.StreamInfo.GetDuration();
 
@@ -32,10 +33,13 @@ namespace XamarinMediaPlayer.Tizen.Services
 
         public PlayerService()
         {
-            var display = new Multimedia.Display(Forms.Context.MainWindow);
-
             _player = new Multimedia.Player();
-            _player.Display = display;
+
+            _player.PlaybackCompleted += (s, e) =>
+            {
+                PlaybackCompleted?.Invoke(this, e);
+                State = PlayerState.Stopped;
+            };
         }
 
         public void Pause()
@@ -52,6 +56,9 @@ namespace XamarinMediaPlayer.Tizen.Services
         {
             State = PlayerState.Preparing;
 
+            var display = new Multimedia.Display(Forms.Context.MainWindow);
+            _player.Display = display;
+
             await _player.PrepareAsync();
 
             State = PlayerState.Prepared;
@@ -64,6 +71,11 @@ namespace XamarinMediaPlayer.Tizen.Services
 
         public void SetSource(string uri)
         {
+            if (_player.State != Multimedia.PlayerState.Idle)
+            {
+                _player.Unprepare();
+            }
+
             var mediaSource = new Multimedia.MediaUriSource(uri);
             _player.SetSource(mediaSource);
         }

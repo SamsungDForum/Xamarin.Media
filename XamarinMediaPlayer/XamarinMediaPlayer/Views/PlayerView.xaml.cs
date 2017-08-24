@@ -11,6 +11,7 @@ namespace XamarinMediaPlayer.Views
     public partial class PlayerView : ContentPage
     {
         private IPlayerService _playerService;
+        private bool _isPageDisappeared = false;
 
         public static readonly BindableProperty ContentSourceProperty = BindableProperty.Create("ContentSource", typeof(string), typeof(PlayerView), default(string));
         public string ContentSource
@@ -62,11 +63,13 @@ namespace XamarinMediaPlayer.Views
             base.OnAppearing();
 
             Play.Focus();
+            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 100), UpdatePlayerControl);
         }
 
         protected override void OnDisappearing()
         {
             _playerService.Stop();
+            _isPageDisappeared = true;
 
             base.OnDisappearing();
         }
@@ -76,7 +79,6 @@ namespace XamarinMediaPlayer.Views
             if (e.State == PlayerState.Prepared)
             {
                 _playerService.Start();
-                Device.StartTimer(new TimeSpan(0, 0, 0, 0, 500), UpdatePlayerControl);
             }
             else if (e.State == PlayerState.Playing)
             {
@@ -100,7 +102,13 @@ namespace XamarinMediaPlayer.Views
 
         private bool UpdatePlayerControl()
         {
+            if (_isPageDisappeared)
+                return false;
+
             Device.BeginInvokeOnMainThread(() => {
+                if (_playerService.State != PlayerState.Playing)
+                    return;
+
                 CurrentTime.Text = GetFormattedTime(_playerService.CurrentPosition);
                 TotalTime.Text = GetFormattedTime(_playerService.Duration);
 
@@ -110,7 +118,7 @@ namespace XamarinMediaPlayer.Views
                     Progressbar.Progress = 0;
             });
 
-            return _playerService.State == PlayerState.Playing;
+            return true;
         }
     }
 }
