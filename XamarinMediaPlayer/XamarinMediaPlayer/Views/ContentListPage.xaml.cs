@@ -72,6 +72,9 @@ namespace XamarinMediaPlayer.Views
         protected void UpdateContentInfo()
         {
             ContentImage.Source = ImageSource.FromFile(FocusedContent.ContentImg);
+            ContentImage.Opacity = 0;
+            ContentImage.FadeTo(1, 1000);
+
             ContentTitle.Text = FocusedContent.ContentTitle;
             ContentDesc.Text = FocusedContent.ContentDescription;
         }
