@@ -38,7 +38,6 @@ namespace XamarinMediaPlayer.Views
             AppMainPage = page;
 
             BgImage.Source = ImageSource.FromFile("content_list_bg.png");
-            Dim.Color = Color.FromRgba(0, 0, 0, 32);
 
             foreach (DetailContentData content in ((ContentListPageViewModel)BindingContext).ContentList)
             {
