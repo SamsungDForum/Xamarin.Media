@@ -68,16 +68,16 @@
     <Content Include="res\btn_viewer_control_pause_normal.png" />
     <Content Include="res\btn_viewer_control_play_normal.png" />
     <Content Include="res\btn_viewer_control_previous_normal.png" />
-    <Content Include="res\img_1_a.png" />
-    <Content Include="res\img_1_b.png" />
-    <Content Include="res\img_2_a.png" />
-    <Content Include="res\img_2_b.png" />
-    <Content Include="res\img_3_a.png" />
-    <Content Include="res\img_3_b.png" />
-    <Content Include="res\img_4_a.png" />
-    <Content Include="res\img_4_b.png" />
-    <Content Include="res\img_7_a.png" />
-    <Content Include="res\img_7_b.png" />
+    <Content Include="res\img_1_a.jpg" />
+    <Content Include="res\img_1_b.jpg" />
+    <Content Include="res\img_2_a.jpg" />
+    <Content Include="res\img_2_b.jpg" />
+    <Content Include="res\img_3_a.jpg" />
+    <Content Include="res\img_3_b.jpg" />
+    <Content Include="res\img_4_a.jpg" />
+    <Content Include="res\img_4_b.jpg" />
+    <Content Include="res\img_7_a.jpg" />
+    <Content Include="res\img_7_b.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
