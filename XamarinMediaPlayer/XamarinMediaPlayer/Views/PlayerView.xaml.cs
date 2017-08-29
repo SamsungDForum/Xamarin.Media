@@ -10,8 +10,13 @@ namespace XamarinMediaPlayer.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PlayerView : ContentPage
     {
+        private readonly int DefaultTimeout = 5000;
+        private readonly TimeSpan UpdateInterval = new TimeSpan(0, 0, 0, 0, 100);
+
         private IPlayerService _playerService;
+        private int _hideTime;
         private bool _isPageDisappeared = false;
+        private bool _isShowing = false;
 
         public static readonly BindableProperty ContentSourceProperty = BindableProperty.Create("ContentSource", typeof(string), typeof(PlayerView), default(string));
         public string ContentSource
@@ -36,14 +41,35 @@ namespace XamarinMediaPlayer.Views
                 else
                     _playerService.Start();
             };
-            Next.Clicked += (s, e) =>
-            {
-            };
-            Prev.Clicked += (s, e) =>
-            {
-            };
 
             PropertyChanged += PlayerViewPropertyChanged;
+
+            MessagingCenter.Subscribe<IKeyEventSender, string>(this, "KeyDown", (s, e) =>
+            {
+                show();
+            });
+        }
+
+        public void show()
+        {
+            show(DefaultTimeout);
+        }
+
+        public void show(int timeout)
+        {
+            if (!_isShowing)
+            {
+                Play.Focus();
+                _isShowing = true;
+            }
+            Controller.IsVisible = true;
+            _hideTime = timeout;
+        }
+
+        public void hide()
+        {
+            Controller.IsVisible = false;
+            _isShowing = false;
         }
 
         private void PlayerViewPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -63,7 +89,7 @@ namespace XamarinMediaPlayer.Views
             base.OnAppearing();
 
             Play.Focus();
-            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 100), UpdatePlayerControl);
+            Device.StartTimer(UpdateInterval, UpdatePlayerControl);
         }
 
         protected override void OnDisappearing()
@@ -79,6 +105,7 @@ namespace XamarinMediaPlayer.Views
             if (e.State == PlayerState.Prepared)
             {
                 _playerService.Start();
+                _hideTime = DefaultTimeout;
             }
             else if (e.State == PlayerState.Playing)
             {
@@ -107,7 +134,10 @@ namespace XamarinMediaPlayer.Views
 
             Device.BeginInvokeOnMainThread(() => {
                 if (_playerService.State != PlayerState.Playing)
+                {
+                    show(-1);
                     return;
+                }
 
                 CurrentTime.Text = GetFormattedTime(_playerService.CurrentPosition);
                 TotalTime.Text = GetFormattedTime(_playerService.Duration);
@@ -116,6 +146,15 @@ namespace XamarinMediaPlayer.Views
                     Progressbar.Progress = _playerService.CurrentPosition / (float)_playerService.Duration;
                 else
                     Progressbar.Progress = 0;
+
+                if (_hideTime > 0)
+                {
+                    _hideTime -= (int)UpdateInterval.TotalMilliseconds;
+                    if (_hideTime <= 0)
+                    {
+                        hide();
+                    }
+                }
             });
 
             return true;
