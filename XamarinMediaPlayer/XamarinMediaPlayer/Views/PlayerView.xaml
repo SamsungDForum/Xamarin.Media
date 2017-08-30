@@ -8,20 +8,28 @@
         <StackLayout HorizontalOptions="FillAndExpand"
                      VerticalOptions="FillAndExpand"
                      x:Name="Controller">
-            <StackLayout BackgroundColor="#80101010"
+            <StackLayout BackgroundColor="#B0101010"
                          Padding="0, 20">
-                <Label x:Name="Title"
+                <Label x:Name="VideoTitle"
                        Text="{Binding Title}"
                        TextColor="White"
-                       FontSize="Medium"
+                       FontSize="Large"
                        HorizontalOptions="CenterAndExpand"
                        VerticalOptions="Fill"/>
             </StackLayout>
             <BoxView VerticalOptions="FillAndExpand"/>
-            <StackLayout BackgroundColor="#80101010"
-                         Padding="20, 20">
-                <ProgressBar x:Name="Progressbar"
-                             Progress=".0" />
+            <StackLayout BackgroundColor="#B0101010"
+                         Padding="20, 25">
+                <RelativeLayout>
+                    <BoxView Color="#C0070707"
+                             HeightRequest="4"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.898}"
+                             RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.051}"/>
+                    <ProgressBar x:Name="Progressbar"
+                                 Progress=".0"
+                                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1.0}"
+                                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.0}" />
+                </RelativeLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label x:Name="CurrentTime"
                            HorizontalOptions="StartAndExpand"
@@ -35,12 +43,7 @@
                            FontSize="Medium"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30">
-                    <Button x:Name="Prev" Image="btn_viewer_control_previous_normal.png" WidthRequest="100">
-                    </Button>
-                    <Button x:Name="Play" Image="btn_viewer_control_play_normal.png" WidthRequest="100">
-                    </Button>
-                    <Button x:Name="Next" Image="btn_viewer_control_next_normal.png" WidthRequest="100">
-                    </Button>
+                    <Button x:Name="Play" Image="btn_viewer_control_play_normal.png" WidthRequest="100"/>
                 </StackLayout>
             </StackLayout>
         </StackLayout>
