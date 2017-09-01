@@ -31,8 +31,9 @@ namespace XamarinMediaPlayer.Views
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            _playerService = DependencyService.Get<IPlayerService>();
+            _playerService = DependencyService.Get<IPlayerService>(DependencyFetchTarget.NewInstance);
             _playerService.StateChanged += OnPlayerStateChanged;
+            _playerService.PlaybackCompleted += OnPlaybackCompleted;
 
             Play.Clicked += (s, e) =>
             {
@@ -84,6 +85,12 @@ namespace XamarinMediaPlayer.Views
             }
         }
 
+        private void OnPlaybackCompleted(object sender, EventArgs e)
+        {
+            UpdatePlayTime();
+            show();
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -94,10 +101,23 @@ namespace XamarinMediaPlayer.Views
 
         protected override void OnDisappearing()
         {
-            _playerService.Stop();
+            Device.StartTimer(TimeSpan.FromMilliseconds(0), () =>
+            {
+                _playerService.Dispose();
+                _playerService = null;
+
+                return false;
+            });
             _isPageDisappeared = true;
 
             base.OnDisappearing();
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Navigation.RemovePage(this);
+
+            return true;
         }
 
         private void OnPlayerStateChanged(object sender, Services.PlayerStateChangedEventArgs e)
@@ -112,6 +132,10 @@ namespace XamarinMediaPlayer.Views
                 Play.Image = "btn_viewer_control_pause_normal.png";
             }
             else if (e.State == PlayerState.Paused)
+            {
+                Play.Image = "btn_viewer_control_play_normal.png";
+            }
+            else if (e.State == PlayerState.Stopped)
             {
                 Play.Image = "btn_viewer_control_play_normal.png";
             }
@@ -135,17 +159,10 @@ namespace XamarinMediaPlayer.Views
             Device.BeginInvokeOnMainThread(() => {
                 if (_playerService.State != PlayerState.Playing)
                 {
-                    show(-1);
                     return;
                 }
 
-                CurrentTime.Text = GetFormattedTime(_playerService.CurrentPosition);
-                TotalTime.Text = GetFormattedTime(_playerService.Duration);
-
-                if (_playerService.Duration > 0)
-                    Progressbar.Progress = _playerService.CurrentPosition / (float)_playerService.Duration;
-                else
-                    Progressbar.Progress = 0;
+                UpdatePlayTime();
 
                 if (_hideTime > 0)
                 {
@@ -158,6 +175,17 @@ namespace XamarinMediaPlayer.Views
             });
 
             return true;
+        }
+
+        private void UpdatePlayTime()
+        {
+            CurrentTime.Text = GetFormattedTime(_playerService.CurrentPosition);
+            TotalTime.Text = GetFormattedTime(_playerService.Duration);
+
+            if (_playerService.Duration > 0)
+                Progressbar.Progress = _playerService.CurrentPosition / (float)_playerService.Duration;
+            else
+                Progressbar.Progress = 0;
         }
     }
 }

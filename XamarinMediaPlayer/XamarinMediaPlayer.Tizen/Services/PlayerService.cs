@@ -111,7 +111,6 @@ namespace XamarinMediaPlayer.Tizen.Services
         {
             if (disposing)
             {
-                _player.Unprepare();
                 _player.Dispose();
             }
         }

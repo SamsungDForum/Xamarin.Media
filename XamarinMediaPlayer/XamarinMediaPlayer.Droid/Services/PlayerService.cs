@@ -113,11 +113,7 @@ namespace XamarinMediaPlayer.Droid.Services
         {
             if (disposing)
             {
-                var decorView = (FrameLayout)((Activity)Forms.Context).Window.DecorView;
-
-                decorView.RemoveView(_videoView);
-                decorView.SystemUiVisibility = (StatusBarVisibility)_PrevUiOptions;
-
+                Stop();
                 _videoView.Dispose();
             }
 

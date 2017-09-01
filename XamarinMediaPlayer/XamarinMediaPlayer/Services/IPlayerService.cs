@@ -5,7 +5,7 @@ namespace XamarinMediaPlayer.Services
 {
     public delegate void PlayerStateChangedEventHandler(object sender, PlayerStateChangedEventArgs e);
 
-    public interface IPlayerService
+    public interface IPlayerService : IDisposable
     {
         event PlayerStateChangedEventHandler StateChanged;
         event EventHandler PlaybackCompleted;
