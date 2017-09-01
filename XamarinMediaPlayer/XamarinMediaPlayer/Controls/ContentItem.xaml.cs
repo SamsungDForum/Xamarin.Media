@@ -39,19 +39,58 @@ namespace XamarinMediaPlayer.Controls
 
         public ContentSelectHandler OnContentSelect;
 
+        public enum ItemState
+        {
+            Unfocused,
+            Focused,
+            Selected
+        }
+
+        public ItemState State;
+
         public ContentItem()
         {
             InitializeComponent();
 
-            ImageBorder.BackgroundColor = Color.FromRgb(32, 32, 32);
-            Dim.Color = Color.FromRgba(0, 0, 0, 128);
+            SetItemState(ItemState.Unfocused);
 
             PropertyChanged += ContentPropertyChanged;
         }
 
         public bool SetFocus()
         {
+            ContentFocusedCommand?.Execute(this);
             return FocusArea.Focus();
+        }
+
+        public void SetUnfocus()
+        {
+            SetItemState(ItemState.Unfocused);
+        }
+
+        private void SetItemState(ItemState st)
+        {
+            switch (st)
+            {
+                case ItemState.Focused:
+                    ImageBorder.BackgroundColor = Color.FromRgb(234, 234, 234);
+                    Dim.Color = Color.FromRgba(0, 0, 0, 0);
+                    PlayImage.Opacity = 0;
+                    break;
+                case ItemState.Unfocused:
+                    ImageBorder.BackgroundColor = Color.FromRgb(32, 32, 32);
+                    Dim.Color = Color.FromRgba(0, 0, 0, 64);
+                    PlayImage.Opacity = 0;
+                    break;
+                case ItemState.Selected:
+                    ImageBorder.BackgroundColor = Color.FromRgb(234, 234, 234);
+                    Dim.Color = Color.FromRgba(0, 0, 0, 192);
+                    PlayImage.Opacity = 1;
+                    break;
+                default:
+                    return;
+            }
+            State = st;
         }
 
         protected override void OnSizeAllocated(double width, double height)
@@ -66,21 +105,26 @@ namespace XamarinMediaPlayer.Controls
 
         private void OnItemClicked(object sender, EventArgs e)
         {
-            OnContentSelect(this);
+            if (State == ItemState.Selected)
+            {
+                OnContentSelect(this);
+            }
+            else
+            {
+                ContentFocusedCommand?.Execute(this);
+
+                SetItemState(ItemState.Selected);
+            }
         }
 
         private void OnItemFocused(object sender, FocusEventArgs e)
         {
-            ImageBorder.BackgroundColor = Color.FromRgb(234, 234, 234);
-            Dim.Color = Color.FromRgba(0, 0, 0, 0);
-
-            ContentFocusedCommand?.Execute(this);
+            SetItemState(ItemState.Focused);
         }
 
         private void OnItemUnfocused(object sender, FocusEventArgs e)
         {
-            ImageBorder.BackgroundColor = Color.FromRgb(32, 32, 32);
-            Dim.Color = Color.FromRgba(0, 0, 0, 128);
+            SetItemState(ItemState.Unfocused);
         }
 
         private void ContentPropertyChanged(object sender, PropertyChangedEventArgs e)

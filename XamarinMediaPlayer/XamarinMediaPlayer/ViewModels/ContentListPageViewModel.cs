@@ -69,7 +69,7 @@ namespace XamarinMediaPlayer.ViewModels
 
             content = new DetailContentData();
             content.Title = "Sintel";
-            content.Description = "The film follows a girl named Sintel who is searching for a baby dragon she calls Scales. A flashback reveals that Sintel found Scales with its wing injured and helped care for it, forming a close bond with it. By the time its wing recovered and it was able to fly, Scales was caught by an adult dragon. Sintel has since embarked on a quest to rescue Scales, fending off beasts and warriors along the way.";
+            content.Description = "The film follows a girl named Sintel who is searching for a baby dragon she calls Scales. A flashback reveals that Sintel found Scales with its wing injured and helped care for it, forming a close bond with it. By the time its wing recovered and it was able to fly, Scales was caught by an adult dragon.";
             content.Image = "img_4_b.jpg";
             content.Bg = "img_4_a.jpg";
             content.Source = "https://goo.gl/FnjkmB";

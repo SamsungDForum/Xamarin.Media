@@ -41,18 +41,22 @@ namespace XamarinMediaPlayer.Controls
             return item.SetFocus();
         }
 
-        private void OnFocused(object sender, FocusEventArgs e)
-        {
-        }
-
-        private void OnUnfocused(object sender, FocusEventArgs e)
-        {
-        }
-
         private void ContentFocusedChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName.Equals("FocusedContent"))
             {
+                UpdateItemState();
+            }
+        }
+
+        private void UpdateItemState()
+        {
+            foreach (ContentItem child in ContentLayout.Children)
+            {
+                if (child != FocusedContent)
+                {
+                    child.SetUnfocus();
+                }
             }
         }
     }
