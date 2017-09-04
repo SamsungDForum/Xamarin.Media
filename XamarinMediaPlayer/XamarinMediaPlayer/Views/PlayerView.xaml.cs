@@ -49,6 +49,10 @@ namespace XamarinMediaPlayer.Views
             {
                 show();
             });
+            MessagingCenter.Subscribe<ITapEventSender>(this, "Tap", (s) =>
+            {
+                show();
+            });
         }
 
         public void show()
