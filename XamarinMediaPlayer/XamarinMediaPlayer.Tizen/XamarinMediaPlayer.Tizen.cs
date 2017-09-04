@@ -6,18 +6,21 @@ namespace XamarinMediaPlayer.Tizen
 {
     class Program : global::Xamarin.Forms.Platform.Tizen.FormsApplication, IKeyEventSender, ITapEventSender
     {
+        EcoreEvent<EcoreKeyEventArgs> _keyDown;
+        GestureLayer _gestureLayer;
         protected override void OnCreate()
         {
             base.OnCreate();
 
-            var keyDown = new EcoreEvent<EcoreKeyEventArgs>(EcoreEventType.KeyDown, EcoreKeyEventArgs.Create);
-            keyDown.On += (s, e) =>
+            _keyDown = new EcoreEvent<EcoreKeyEventArgs>(EcoreEventType.KeyDown, EcoreKeyEventArgs.Create);
+            _keyDown.On += (s, e) =>
             {
+                // Send key event to the portable project using MessagingCenter
                 Xamarin.Forms.MessagingCenter.Send<IKeyEventSender, string>(this, "KeyDown", e.KeyName);
             };
 
-            var gestureLayer = new GestureLayer(Forms.Context.MainWindow);
-            gestureLayer.SetTapCallback(GestureLayer.GestureType.Tap, GestureLayer.GestureState.End, (e) =>
+            _gestureLayer = new GestureLayer(Forms.Context.MainWindow);
+            _gestureLayer.SetTapCallback(GestureLayer.GestureType.Tap, GestureLayer.GestureState.End, (e) =>
             {
                 Xamarin.Forms.MessagingCenter.Send<ITapEventSender>(this, "Tap");
             });
