@@ -43,6 +43,7 @@
     <Compile Include="Models\DetailContentData.cs" />
     <Compile Include="Services\IKeyEventSender.cs" />
     <Compile Include="Services\IPlayerService.cs" />
+    <Compile Include="Services\ITapEventSender.cs" />
     <Compile Include="Services\PlayerState.cs" />
     <Compile Include="Services\ContentSelect.cs" />
     <Compile Include="Services\PlayerStateChangedEventArgs.cs" />
