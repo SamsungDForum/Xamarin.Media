@@ -68,14 +68,14 @@ namespace XamarinMediaPlayer.Views
             AppMainPage.PushAsync(playerView);
         }
 
-        protected void UpdateContentInfo()
+        protected async void UpdateContentInfo()
         {
-            ContentImage.Source = ImageSource.FromFile(FocusedContent.ContentImg);
-            ContentImage.Opacity = 0;
-            ContentImage.FadeTo(1, 500);
-
             ContentTitle.Text = FocusedContent.ContentTitle;
             ContentDesc.Text = FocusedContent.ContentDescription;
+
+            ContentImage.Source = ImageSource.FromFile(FocusedContent.ContentImg);
+            ContentImage.Opacity = 0;
+            await ContentImage.FadeTo(1, 1000);
         }
 
         protected override void OnAppearing()
