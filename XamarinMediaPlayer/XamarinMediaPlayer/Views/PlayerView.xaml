@@ -43,7 +43,19 @@
                            FontSize="Medium"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30">
-                    <Button x:Name="Play" Image="btn_viewer_control_play_normal.png" WidthRequest="100"/>
+                    <AbsoluteLayout>
+                        <Image x:Name="PlayImage"
+                                Source="btn_viewer_control_play_normal.png"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center"
+                                AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+                        <Button x:Name="Play"
+                                Opacity="0.1"
+                                AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
+                                HorizontalOptions="Fill"
+                                VerticalOptions="Fill"
+                                WidthRequest="100"/>
+                    </AbsoluteLayout>
                 </StackLayout>
             </StackLayout>
         </StackLayout>

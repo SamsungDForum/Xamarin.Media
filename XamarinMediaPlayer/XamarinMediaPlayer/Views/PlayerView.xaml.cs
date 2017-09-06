@@ -133,15 +133,15 @@ namespace XamarinMediaPlayer.Views
             }
             else if (e.State == PlayerState.Playing)
             {
-                Play.Image = "btn_viewer_control_pause_normal.png";
+                PlayImage.Source = ImageSource.FromFile("btn_viewer_control_pause_normal.png");
             }
             else if (e.State == PlayerState.Paused)
             {
-                Play.Image = "btn_viewer_control_play_normal.png";
+                PlayImage.Source = ImageSource.FromFile("btn_viewer_control_play_normal.png");
             }
             else if (e.State == PlayerState.Stopped)
             {
-                Play.Image = "btn_viewer_control_play_normal.png";
+                PlayImage.Source = ImageSource.FromFile("btn_viewer_control_play_normal.png");
             }
         }
 
