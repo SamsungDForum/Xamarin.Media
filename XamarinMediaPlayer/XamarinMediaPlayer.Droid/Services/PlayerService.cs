@@ -65,8 +65,6 @@ namespace XamarinMediaPlayer.Droid.Services
             var newUiOptions = _PrevUiOptions;
 
             newUiOptions |= (int)SystemUiFlags.LowProfile;
-            newUiOptions |= (int)SystemUiFlags.Fullscreen;
-            newUiOptions |= (int)SystemUiFlags.HideNavigation;
             newUiOptions |= (int)SystemUiFlags.Immersive;
 
             decorView.SystemUiVisibility = (StatusBarVisibility)newUiOptions;
