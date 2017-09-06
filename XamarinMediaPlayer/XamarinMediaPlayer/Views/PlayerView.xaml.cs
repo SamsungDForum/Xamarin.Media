@@ -47,20 +47,20 @@ namespace XamarinMediaPlayer.Views
 
             MessagingCenter.Subscribe<IKeyEventSender, string>(this, "KeyDown", (s, e) =>
             {
-                show();
+                Show();
             });
             MessagingCenter.Subscribe<ITapEventSender>(this, "Tap", (s) =>
             {
-                show();
+                Show();
             });
         }
 
-        public void show()
+        public void Show()
         {
-            show(DefaultTimeout);
+            Show(DefaultTimeout);
         }
 
-        public void show(int timeout)
+        public void Show(int timeout)
         {
             if (!_isShowing)
             {
@@ -71,7 +71,7 @@ namespace XamarinMediaPlayer.Views
             _hideTime = timeout;
         }
 
-        public void hide()
+        public void Hide()
         {
             Controller.IsVisible = false;
             _isShowing = false;
@@ -92,7 +92,7 @@ namespace XamarinMediaPlayer.Views
         private void OnPlaybackCompleted(object sender, EventArgs e)
         {
             UpdatePlayTime();
-            show();
+            Show();
         }
 
         protected override void OnAppearing()
@@ -173,7 +173,7 @@ namespace XamarinMediaPlayer.Views
                     _hideTime -= (int)UpdateInterval.TotalMilliseconds;
                     if (_hideTime <= 0)
                     {
-                        hide();
+                        Hide();
                     }
                 }
             });

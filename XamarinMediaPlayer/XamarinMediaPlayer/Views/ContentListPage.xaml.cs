@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -41,9 +39,10 @@ namespace XamarinMediaPlayer.Views
 
             foreach (DetailContentData content in ((ContentListPageViewModel)BindingContext).ContentList)
             {
-                ContentItem item = new ContentItem();
-
-                item.BindingContext = content;
+                ContentItem item = new ContentItem()
+                {
+                    BindingContext = content
+                };
                 item.OnContentSelect += new ContentSelectHandler(ContentSelected);
                 ((StackLayout)ContentListView.Content).Children.Add(item);
             }
@@ -63,8 +62,10 @@ namespace XamarinMediaPlayer.Views
 
         private void ContentSelected(ContentItem item)
         {
-            var playerView = new PlayerView();
-            playerView.BindingContext = item.BindingContext;
+            var playerView = new PlayerView()
+            {
+                BindingContext = item.BindingContext
+            };
             AppMainPage.PushAsync(playerView);
         }
 

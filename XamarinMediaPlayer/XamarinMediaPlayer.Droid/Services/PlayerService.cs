@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Android.App;
-using Android.Graphics;
 using Android.Media;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Xamarin.Forms;
@@ -65,7 +62,7 @@ namespace XamarinMediaPlayer.Droid.Services
             decorView.AddView(_videoView, 0);
 
             _PrevUiOptions = (int)decorView.SystemUiVisibility;
-            var newUiOptions = (int)_PrevUiOptions;
+            var newUiOptions = _PrevUiOptions;
 
             newUiOptions |= (int)SystemUiFlags.LowProfile;
             newUiOptions |= (int)SystemUiFlags.Fullscreen;
