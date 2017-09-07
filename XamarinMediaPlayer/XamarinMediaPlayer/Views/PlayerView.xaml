@@ -19,9 +19,9 @@
             </StackLayout>
             <BoxView VerticalOptions="FillAndExpand"/>
             <StackLayout BackgroundColor="#B0101010"
-                         Padding="20, 25">
+                         Padding="20, 10">
                 <RelativeLayout>
-                    <BoxView Color="#C0070707"
+                    <BoxView Color="#20303030"
                              HeightRequest="4"
                              RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.898}"
                              RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.051}"/>
@@ -35,14 +35,14 @@
                            HorizontalOptions="StartAndExpand"
                            Text="00:00"
                            TextColor="White"
-                           FontSize="Medium"/>
+                           FontSize="Small"/>
                     <Label x:Name="TotalTime"
                            HorizontalOptions="EndAndExpand"
                            Text="00:00"
                            TextColor="White"
-                           FontSize="Medium"/>
+                           FontSize="Small"/>
                 </StackLayout>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Spacing="30">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                     <AbsoluteLayout>
                         <Image x:Name="PlayImage"
                                 Source="btn_viewer_control_play_normal.png"
