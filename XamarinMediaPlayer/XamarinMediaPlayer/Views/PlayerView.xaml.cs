@@ -50,7 +50,11 @@ namespace XamarinMediaPlayer.Views
                 if (e.Contains("Back") && !Controller.IsVisible)
                 {
                     Navigation.RemovePage(this);
+<<<<<<< HEAD
                     return;
+=======
+					return;
+>>>>>>> 54fb09de52f99af6480491937f520e019b616e59
                 }
 
                 ToggleControllerVisibility();
@@ -78,7 +82,11 @@ namespace XamarinMediaPlayer.Views
             }
         }
 
+<<<<<<< HEAD
         public void Show(int timeout)
+=======
+        public void show(int timeout)
+>>>>>>> 54fb09de52f99af6480491937f520e019b616e59
         {
             if (!_isShowing)
             {
