@@ -3,7 +3,7 @@
   <profile name="common" />
   <ui-application appid="org.tizen.example.XamarinMediaPlayer.Tizen" exec="XamarinMediaPlayer.Tizen.exe" multiple="false" nodisplay="false" taskmanage="true" splash-screen-display="true" type="dotnet" launch_mode="single">
     <label>XamarinMediaPlayer.Tizen</label>
-    <icon>XamarinMediaPlayer.Tizen.png</icon>
+    <icon>Icon.png</icon>
   </ui-application>
   <shortcut-list />
   <privileges>

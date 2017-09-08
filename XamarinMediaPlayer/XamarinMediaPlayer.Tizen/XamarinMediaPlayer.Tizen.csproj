@@ -78,6 +78,7 @@
     <Content Include="res\img_4_b.jpg" />
     <Content Include="res\img_7_a.jpg" />
     <Content Include="res\img_7_b.jpg" />
+    <Content Include="shared\res\Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
