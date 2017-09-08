@@ -35,17 +35,7 @@ namespace XamarinMediaPlayer.Views
 
             AppMainPage = page;
 
-            BgImage.Source = ImageSource.FromFile("content_list_bg.png");
-
-            foreach (DetailContentData content in ((ContentListPageViewModel)BindingContext).ContentList)
-            {
-                ContentItem item = new ContentItem()
-                {
-                    BindingContext = content
-                };
-                item.OnContentSelect += new ContentSelectHandler(ContentSelected);
-                ((StackLayout)ContentListView.Content).Children.Add(item);
-            }
+            UpdateItem();
 
             NavigationPage.SetHasNavigationBar(this, false);
 
@@ -67,6 +57,19 @@ namespace XamarinMediaPlayer.Views
                 BindingContext = item.BindingContext
             };
             AppMainPage.PushAsync(playerView);
+        }
+
+        private void UpdateItem()
+        {
+            foreach (DetailContentData content in ((ContentListPageViewModel)BindingContext).ContentList)
+            {
+                ContentItem item = new ContentItem()
+                {
+                    BindingContext = content
+                };
+                item.OnContentSelect += new ContentSelectHandler(ContentSelected);
+                ContentListView.Add(item);
+            }
         }
 
         protected async void UpdateContentInfo()

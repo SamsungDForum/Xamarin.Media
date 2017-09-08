@@ -22,6 +22,7 @@
                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
                 <Image x:Name="BgImage"
                        Aspect="Fill"
+                       Source="content_list_bg.png"
                        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}"
                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
             </RelativeLayout>

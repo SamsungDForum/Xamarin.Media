@@ -23,6 +23,11 @@ namespace XamarinMediaPlayer.Controls
             PropertyChanged += ContentFocusedChanged;
         }
 
+        public void Add(ContentItem item)
+        {
+            ContentLayout.Children.Add(item);
+        }
+
         public bool SetFocus()
         {
             ContentItem item = ContentLayout.Children.First() as ContentItem;
