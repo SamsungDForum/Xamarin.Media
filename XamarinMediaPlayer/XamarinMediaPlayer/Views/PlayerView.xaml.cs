@@ -47,17 +47,35 @@ namespace XamarinMediaPlayer.Views
 
             MessagingCenter.Subscribe<IKeyEventSender, string>(this, "KeyDown", (s, e) =>
             {
-                Show();
+                if (e.Contains("Back") && !Controller.IsVisible)
+                {
+                    Navigation.RemovePage(this);
+                    return;
+                }
+
+                ToggleControllerVisibility();
             });
             MessagingCenter.Subscribe<ITapEventSender>(this, "Tap", (s) =>
             {
-                Show();
+                ToggleControllerVisibility();
             });
         }
 
         public void Show()
         {
             Show(DefaultTimeout);
+        }
+
+        void ToggleControllerVisibility()
+        {
+            if (Controller.IsVisible)
+            {
+                Hide();
+            }
+            else
+            {
+                Show();
+            }
         }
 
         public void Show(int timeout)
@@ -119,8 +137,6 @@ namespace XamarinMediaPlayer.Views
 
         protected override bool OnBackButtonPressed()
         {
-            Navigation.RemovePage(this);
-
             return true;
         }
 
