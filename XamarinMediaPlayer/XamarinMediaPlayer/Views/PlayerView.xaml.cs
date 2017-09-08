@@ -47,7 +47,9 @@ namespace XamarinMediaPlayer.Views
 
             MessagingCenter.Subscribe<IKeyEventSender, string>(this, "KeyDown", (s, e) =>
             {
-                if (e.Contains("Back") && !Controller.IsVisible)
+                if (e.Contains("Back") &&
+                (_playerService.State != PlayerState.Playing ||
+                _playerService.State == PlayerState.Playing && !Controller.IsVisible))
                 {
                     Navigation.RemovePage(this);
                     return;
