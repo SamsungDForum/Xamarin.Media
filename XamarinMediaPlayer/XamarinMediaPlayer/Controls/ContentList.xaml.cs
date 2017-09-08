@@ -44,6 +44,16 @@ namespace XamarinMediaPlayer.Controls
             return item.SetFocus();
         }
 
+        public void SetHeight(double height)
+        {
+            ContentItem item = ContentLayout.Children.First() as ContentItem;
+
+            foreach (ContentItem child in ContentLayout.Children)
+            {
+                child.SetHeight(height);
+            }
+        }
+
         private void ContentFocusedChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName.Equals("FocusedContent"))

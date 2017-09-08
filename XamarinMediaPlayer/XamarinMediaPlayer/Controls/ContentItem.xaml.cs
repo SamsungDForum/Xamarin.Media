@@ -47,12 +47,14 @@ namespace XamarinMediaPlayer.Controls
         }
 
         public ItemState State;
+        public double _height;
 
         public ContentItem()
         {
             InitializeComponent();
 
             SetItemState(ItemState.Unfocused);
+            _height = 0;
 
             PropertyChanged += ContentPropertyChanged;
         }
@@ -66,6 +68,13 @@ namespace XamarinMediaPlayer.Controls
         public void SetUnfocus()
         {
             SetItemState(ItemState.Unfocused);
+        }
+
+        public void SetHeight(double height)
+        {
+            _height = height;
+            HeightRequest = _height;
+            WidthRequest = _height * 1.8;
         }
 
         private void SetItemState(ItemState st)
@@ -100,7 +109,8 @@ namespace XamarinMediaPlayer.Controls
             if (width == -1 || height == -1)
                 return;
 
-            WidthRequest = height * 1.8;
+            if (_height == 0)
+                WidthRequest = height * 1.8;
         }
 
         private void OnItemClicked(object sender, EventArgs e)

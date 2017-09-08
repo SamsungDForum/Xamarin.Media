@@ -6,9 +6,9 @@
             FocusedContent="{Binding FocusedContent}">
     <StackLayout x:Name="ContentLayout"
                  Orientation="Horizontal"
-                 HorizontalOptions="StartAndExpand"
-                 VerticalOptions="StartAndExpand"
-                 Spacing="20"
+                 HorizontalOptions="Center"
+                 VerticalOptions="Center"
+                 Spacing="15"
                  Padding="0, 0, 0, 0">
     </StackLayout>
 </ScrollView>

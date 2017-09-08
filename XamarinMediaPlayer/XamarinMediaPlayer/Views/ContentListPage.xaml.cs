@@ -88,5 +88,18 @@ namespace XamarinMediaPlayer.Views
 
             ContentListView.SetFocus();
         }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+
+            if (width == -1 || height == -1)
+                return;
+
+            // FIXME: Workaround for Tizen
+            // Sometimes height of list is calculated as wrong
+            // Set the height explicitly for fixing this issue
+            ContentListView.SetHeight(height * 0.21);
+        }
     }
 }
