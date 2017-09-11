@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using XamarinMediaPlayer.Controls;
 using XamarinMediaPlayer.Services;
 
 namespace XamarinMediaPlayer.Views
@@ -44,40 +42,32 @@ namespace XamarinMediaPlayer.Views
             };
 
             PropertyChanged += PlayerViewPropertyChanged;
-
+            
             MessagingCenter.Subscribe<IKeyEventSender, string>(this, "KeyDown", (s, e) =>
             {
-                if (e.Contains("Back") &&
-                (_playerService.State != PlayerState.Playing ||
-                _playerService.State == PlayerState.Playing && !Controller.IsVisible))
+                if (e.Contains("Back"))
+                { 
+                    if (_playerService.State != PlayerState.Playing || 
+                        _playerService.State == PlayerState.Playing && !Controller.IsVisible)
+                    {
+                        Navigation.RemovePage(this);
+                        return;
+                    }
+                    else
+                    {
+                        Hide();
+                    }
+                } 
+                else if (e.Contains("Enter") || e.Contains("Return"))
                 {
-                    Navigation.RemovePage(this);
-                    return;
+                    Show();
                 }
-
-                ToggleControllerVisibility();
-            });
-            MessagingCenter.Subscribe<ITapEventSender>(this, "Tap", (s) =>
-            {
-                ToggleControllerVisibility();
             });
         }
 
         public void Show()
         {
             Show(DefaultTimeout);
-        }
-
-        void ToggleControllerVisibility()
-        {
-            if (Controller.IsVisible)
-            {
-                Hide();
-            }
-            else
-            {
-                Show();
-            }
         }
 
         public void Show(int timeout)
@@ -132,9 +122,20 @@ namespace XamarinMediaPlayer.Views
 
                 return false;
             });
+            MessagingCenter.Unsubscribe<IKeyEventSender, string>(this, "KeyDown");
             _isPageDisappeared = true;
 
             base.OnDisappearing();
+        }
+
+        void OnTapGestureRecognizerControllerTapped(object sender, EventArgs args)
+        {
+            Hide();
+        }
+
+        void OnTapGestureRecognizerViewTapped(object sender, EventArgs args)
+        {
+            Show();
         }
 
         protected override bool OnBackButtonPressed()

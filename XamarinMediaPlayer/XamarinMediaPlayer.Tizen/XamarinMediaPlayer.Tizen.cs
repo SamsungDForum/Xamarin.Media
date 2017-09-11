@@ -1,13 +1,12 @@
 using ElmSharp;
-using Xamarin.Forms.Platform.Tizen;
 using XamarinMediaPlayer.Services;
 
 namespace XamarinMediaPlayer.Tizen
 {
-    class Program : global::Xamarin.Forms.Platform.Tizen.FormsApplication, IKeyEventSender, ITapEventSender
+    class Program : global::Xamarin.Forms.Platform.Tizen.FormsApplication, IKeyEventSender
     {
         EcoreEvent<EcoreKeyEventArgs> _keyDown;
-        GestureLayer _gestureLayer;
+
         protected override void OnCreate()
         {
             base.OnCreate();
@@ -18,12 +17,6 @@ namespace XamarinMediaPlayer.Tizen
                 // Send key event to the portable project using MessagingCenter
                 Xamarin.Forms.MessagingCenter.Send<IKeyEventSender, string>(this, "KeyDown", e.KeyName);
             };
-
-            _gestureLayer = new GestureLayer(Forms.Context.MainWindow);
-            _gestureLayer.SetTapCallback(GestureLayer.GestureType.Tap, GestureLayer.GestureState.End, (e) =>
-            {
-                Xamarin.Forms.MessagingCenter.Send<ITapEventSender>(this, "Tap");
-            });
 
             LoadApplication(new App());
         }
