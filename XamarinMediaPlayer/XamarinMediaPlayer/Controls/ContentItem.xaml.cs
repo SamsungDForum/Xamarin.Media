@@ -84,18 +84,15 @@ namespace XamarinMediaPlayer.Controls
                 case ItemState.Focused:
                     ImageBorder.BackgroundColor = Color.FromRgb(234, 234, 234);
                     Dim.Color = Color.FromRgba(0, 0, 0, 0);
-                    PlayImage.Opacity = 0;
                     break;
                 case ItemState.Unfocused:
                     ImageBorder.BackgroundColor = Color.FromRgb(32, 32, 32);
                     Dim.Color = Color.FromRgba(0, 0, 0, 64);
-                    PlayImage.Opacity = 0;
                     this.ScaleTo(1, 334);
                     break;
                 case ItemState.Selected:
                     ImageBorder.BackgroundColor = Color.FromRgb(234, 234, 234);
                     Dim.Color = Color.FromRgba(0, 0, 0, 192);
-                    PlayImage.Opacity = 1;
                     this.ScaleTo(0.9, 250);
                     break;
                 default:
