@@ -30,12 +30,12 @@
 
   <!-- Include Nuget Package for Tizen Project building -->
   <ItemGroup>
-    <PackageReference Include="Tizen.NET" Version="4.0.0-preview1-00160">
+    <PackageReference Include="Tizen.NET" Version="4.0.0">
       <ExcludeAssets>Runtime</ExcludeAssets>
     </PackageReference>
-    <PackageReference Include="Tizen.NET.Sdk" Version="1.0.0-pre2" />
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.266-pre1" />
-    <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.4.0-r266-006" />
+    <PackageReference Include="Tizen.NET.Sdk" Version="1.0.0" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.75255-pre3" />
+    <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.5.0.75255-pre3" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinMediaPlayer\XamarinMediaPlayer.csproj" />
