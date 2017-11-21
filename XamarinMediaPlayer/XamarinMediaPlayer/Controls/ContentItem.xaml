@@ -22,6 +22,12 @@
              VerticalOptions="Fill"
              Margin="3, 3, 3, 3"
              AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
+    <Image x:Name="PlayImage"
+           Opacity="0"
+           Source="btn_viewer_control_play_normal.png"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"
+           AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"/>
     <Button x:Name="FocusArea"
             Opacity="0"
             AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"
