@@ -34,8 +34,8 @@
       <ExcludeAssets>Runtime</ExcludeAssets>
     </PackageReference>
     <PackageReference Include="Tizen.NET.Sdk" Version="1.0.0" />
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.75255-pre3" />
-    <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.5.0.75255-pre3" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.91635" />
+    <PackageReference Include="Xamarin.Forms.Platform.Tizen" Version="2.5.0.77107" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinMediaPlayer\XamarinMediaPlayer.csproj" />
